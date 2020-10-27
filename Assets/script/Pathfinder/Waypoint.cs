@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// hier stond de namespace voor pathfinder
 
-namespace Pathfinder
-{
     /// <summary>
     /// De waypoint class beheerd een punt in de wereld. Welke je kunt opvragen
     /// Voor de opdracht is deze class al klaar en hoeft hier niets te gebeuren.
@@ -12,4 +11,3 @@ namespace Pathfinder
     {
         public Vector3 Position { get { return transform.position; } }
     }
-}

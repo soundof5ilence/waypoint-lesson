@@ -17,9 +17,9 @@ namespace Pathfinder
         static public GameObject[] WayPoints;
         int count = 0;
 
-        public void Awake()
+        public void Start()
         {
-            WayPoints = GameObject.FindGameObjectsWithTag("WayPoint").OrderBy(go => go.name).ToArray();
+            WayPoints = GameObject.FindGameObjectsWithTag("Waypoint").OrderBy(go => go.name).ToArray();
             foreach (GameObject wayPoints in WayPoints)
             {
                 Debug.Log(wayPoints.gameObject.name[count]);
