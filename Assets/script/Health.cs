@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    public float maxHealth = 100;
+    public float currentHealth;
 
     public Healthbar healthbar;
 
@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     {
         
         currentHealth = maxHealth;
-        healthbar.SetMaxHealth(maxHealth);
+        healthbar.UpdateHealthbar(GetNormalizedHealth());
     }
 
     // Update is called once per frame
@@ -23,13 +23,24 @@ public class Health : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             TakeDamage(20);
+           
         }
+
+      
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        healthbar.SetHealth(currentHealth);
+        healthbar.UpdateHealthbar(GetNormalizedHealth());
+        if (currentHealth <= 0f)
+        {
+            print("i am ded");
+        }
     }
+    public float GetNormalizedHealth()
+    {
 
+        return (float)(currentHealth / maxHealth);
+    }
 }
